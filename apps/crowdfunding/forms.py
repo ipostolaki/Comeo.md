@@ -16,7 +16,7 @@ class CampaignForm(forms.ModelForm):
 
 
 class FormDonate(forms.ModelForm):
-    agree_check = forms.BooleanField(label=_('I agree to the rules'))
+    agree_check = forms.BooleanField(label=_('I agree with the rules'))
     is_public = forms.BooleanField(label=_('Public donation'), initial=True, required=False)
 
     class Meta:
