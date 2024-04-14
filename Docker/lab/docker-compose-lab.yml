@@ -24,7 +24,7 @@ services:
         env_file: lab.env
 
     pg_database:
-        image: postgres:9.5.3
+        image: postgres:9.5.5-alpine
         # secret strings are in the file
         env_file: lab.env
         volumes:
