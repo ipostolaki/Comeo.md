@@ -21,4 +21,5 @@ echo "Neo4j database is ready"
 
 python manage.py migrate  # lab env should apply migrations(git pulled) before serving application
 python manage.py collectstatic --noinput  # copy all static files to the folder served by nginx
-gunicorn --workers=2 --bind 0.0.0.0:80 comeo_project.wsgi:application
+#gunicorn --workers=2 --bind 0.0.0.0:80 comeo_project.wsgi:application
+python manage.py runserver 0.0.0.0:80

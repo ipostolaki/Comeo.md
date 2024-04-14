@@ -27,7 +27,7 @@ class CommonMixin:
 
     def get_node_id(self):
         # this may be used to access value in the templates
-        return self._id
+        return self.id
 
     def update_node_with_data(self, title, metadata):
         self.title = title
@@ -36,7 +36,7 @@ class CommonMixin:
 
     @classmethod
     def get_by_id(cls, node_id):
-        node_to_find = cls(_id=int(node_id))
+        node_to_find = cls(id=int(node_id))
         node_to_find.refresh()  # this will load node with given _id from neo db
         return node_to_find
 

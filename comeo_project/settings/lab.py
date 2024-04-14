@@ -1,12 +1,15 @@
 from .common import *
+from neomodel import config
+config.DATABASE_URL = 'bolt://neo4j:neo4j@neo:7687'
+config.ENCRYPTED_CONNECTION = False
 
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = False
-ALLOWED_HOSTS = ['.comeo.co']
+ALLOWED_HOSTS = ['*']
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static_collected')
+#STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static_collected')
 
 # Custom email backend which supports ssl connection supported by zoho
 EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'

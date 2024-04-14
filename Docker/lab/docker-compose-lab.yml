@@ -17,7 +17,7 @@ services:
         working_dir: /comeo_project
         command: bash -c ". ./Docker/lab/run_django.sh"
         ports:
-            - 3000:80  # nginx on the server is listening port 3000 to serve the lab subdomain
+            - 80:80  # nginx on the server is listening port 3000 to serve the lab subdomain
         depends_on:
             - pg_database
             - neo
@@ -40,7 +40,7 @@ services:
         env_file: lab.env
 
     celery:
-        image: comeolab_django  # this image have celery pip installed inside
+        image: comeo_lab_django  # this image have celery pip installed inside
         depends_on:
             - django  # django service image need to be built first
             - rabbit
@@ -52,7 +52,8 @@ services:
         env_file: lab.env
 
     neo:
-        image: neo4j:2.3.5  # latest is 3.0.3 (not supported ny neomodel currently)
+#        image: neo4j:2.3.5  # latest is 3.0.3 (not supported ny neomodel currently)
+        image: neo4j:3.0.3  # latest is 3.0.3 (not supported ny neomodel currently)
         env_file: lab.env
         volumes:
             - neo_data:/data
